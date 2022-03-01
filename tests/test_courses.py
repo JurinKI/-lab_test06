@@ -6,6 +6,12 @@ from main import app
 
 client = TestClient(app)
 
+def test_null_data_api():
+    input = "0"
+    output = "No information found."
+    response = client.get("/service/getage?year="+input)
+    assert response.status_code == 200
+    assert response.json() == {"msg":output}
 
 def test_yeat_data_api():
     input = "2543"
@@ -28,9 +34,5 @@ def test_over_yeat_data_api():
     assert response.status_code == 200
     assert response.json() == {"msg":output}
 
-def test_null_yeat_data_api():
-    input = "0"
-    output = "No information found."
-    response = client.get("/service/getage?year="+input)
-    assert response.status_code == 200
-    assert response.json() == {"msg":output}
+
+
