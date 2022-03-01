@@ -1,4 +1,3 @@
-from asyncio.windows_events import NULL
 from fastapi.testclient import TestClient
 import sys        
 sys.path.insert(0, '../lab_test06')        
